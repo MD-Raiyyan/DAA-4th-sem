@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class MergeSort {
 
     static void mergeSort(int arr[], int low, int high) {
@@ -15,7 +17,6 @@ class MergeSort {
 
     static void merge(int arr[], int low, int mid, int high) {
 
-        // Easy to remember for lab exam
         int temp[] = new int[arr.length];
 
         int i = low;
@@ -41,13 +42,25 @@ class MergeSort {
 
     public static void main(String args[]) {
 
-        int arr[] = {78, 91, 65, 83, 70, 95, 69, 88};
+        Scanner sc = new Scanner(System.in);
 
-        mergeSort(arr, 0, arr.length - 1);
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int arr[] = new int[n];
+
+        System.out.println("Enter the elements:");
+
+        for (int i = 0; i < n; i++)
+            arr[i] = sc.nextInt();
+
+        mergeSort(arr, 0, n - 1);
 
         System.out.println("Sorted Array:");
 
-        for (int i = 0; i < arr.length; i++)
+        for (int i = 0; i < n; i++)
             System.out.print(arr[i] + " ");
+
+        sc.close();
     }
 }
